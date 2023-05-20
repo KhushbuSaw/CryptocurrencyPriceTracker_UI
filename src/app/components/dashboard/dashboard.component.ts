@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class DashboardComponent implements OnInit {
   public users:any=[];
+  public role:string="";
+  public fullName:string="";
   constructor(private auth:AuthService)
   {
 
@@ -17,6 +19,16 @@ export class DashboardComponent implements OnInit {
     .subscribe(res=>
       {
         this.users=res;
+      });
+      this.auth.getFullNameFromStore()
+      .subscribe(val=>{
+        let fullNameFromToken=this.auth.getFullNameFromToken();
+        this.fullName=val||fullNameFromToken
+      });
+      this.auth.getRoleFromStore()
+      .subscribe(val=>{
+        const roleFromToken=this.auth.getRoleFromToken();
+        this.role=val||roleFromToken;
       })
   }
   logOut()

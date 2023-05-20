@@ -1,15 +1,23 @@
 import { Injectable } from '@angular/core';
 import{HttpClient} from '@angular/common/http'
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import{JwtHelperService} from '@auth0/angular-jwt'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private baseUrl:string="http://localhost:40812/api/UserDetails/"
+  private unique_name$=new BehaviorSubject<string>("");
+  private role$=new BehaviorSubject<string>("");
 
-  constructor(private http:HttpClient,private router:Router) { }
+  private baseUrl:string="http://localhost:40812/api/UserDetails/";
+  private userPayload:any;
+
+  constructor(private http:HttpClient,private router:Router) { 
+    this.userPayload=this.decodedToken();
+  }
 
   signUp(userObj:any){
     return this.http.post<any>(`${this.baseUrl}register`,userObj);
@@ -37,5 +45,36 @@ export class AuthService {
   }
   isLoggedIn():boolean{
     return !!this.getToken();
+  }
+  decodedToken()
+  {
+    const jwtHelper=new JwtHelperService();
+    return jwtHelper.decodeToken(this.getToken()!);
+  }
+  public getRoleFromStore()
+  {
+    return this.role$.asObservable();
+  }
+  public setRoleForStore(role:string)
+  {
+    this.role$.next(role);
+  }
+  public getFullNameFromStore()
+  {
+    return this.unique_name$.asObservable();
+  }
+  public setFullNameForStore(fullName:string)
+  {
+    this.unique_name$.next(fullName);
+  }
+  public getFullNameFromToken()
+  {
+    if(this.userPayload)
+    return this.userPayload.unique_name;
+  }
+  public getRoleFromToken()
+  {
+    if(this.userPayload)
+    return this.userPayload.role;
   }
 }

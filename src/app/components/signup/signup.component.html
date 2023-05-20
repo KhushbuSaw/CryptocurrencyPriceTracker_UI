@@ -27,7 +27,18 @@
                                     <input formControlName="email" type="text" placeholder="Email">
                                 </div>
                             </div>
-                            <small *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')" class="text-danger">*Please enter your email</small>
+                            <small *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')" class="text-danger">*Please enter your email</small>              
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user p-2"></span>
+                                     <select formControlName="role">
+                                        <option value='' disabled>Select Role</option>
+                                        <option value="1">Admin</option>
+                                        <option value="2">User</option>
+                                     </select>
+                                </div>
+                            </div>
+                            <small *ngIf="signUpForm.controls['role'].touched && signUpForm.controls['role'].value=='' && signUpForm.hasError('required','role')" class="text-danger">*Please select role</small>                                              
                             <div class="form-group pt-3">
                                 <div class="input-field">
                                     <span class="fa fa-user p-2"></span>
