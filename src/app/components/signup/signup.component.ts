@@ -23,6 +23,7 @@ export class SignupComponent implements OnInit {
       email:['',Validators.required],
       username:['',Validators.required],
       password:['',Validators.required],
+      role:['',Validators.required],
     })
   }
   hideShowPass(){

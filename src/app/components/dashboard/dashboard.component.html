@@ -1,6 +1,16 @@
-<button (click)="logOut()" class="btn btn-danger">Log Out</button>
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">Food Corner</a>
+      <div>
+        Hello,{{fullName}}
+      </div>
+      <div>
+       <button (click)="logOut()" class="btn btn-danger">Log Out</button>
+      </div>
+    </div>
+  </nav>
+  <ng-container *ngIf="role === 'Admin'">
+    <h1>Khushbu</h1>
+  </ng-container>
 
-<p>dashboard works!</p>
-<ul *ngFor="let user of users">
-    <li>{{user.userName}}</li>
-</ul>
+ 
