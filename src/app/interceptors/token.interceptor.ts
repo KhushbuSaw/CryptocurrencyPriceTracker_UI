@@ -10,11 +10,12 @@ import { Observable, catchError, switchMap, throwError } from 'rxjs';
 import { AuthService } from '../Services/auth.service';
 import { Router } from '@angular/router';
 import { TokenDtoModel } from '../models/TokenDtoModel';
+import { NgToastService } from 'ng-angular-popup';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor(private auth:AuthService,private route:Router) {}
+  constructor(private auth:AuthService,private route:Router,private toast:NgToastService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const myToken=this.auth.getToken();
@@ -51,7 +52,7 @@ export class TokenInterceptor implements HttpInterceptor {
       }),
       catchError((err)=>{
         return throwError(()=>{
-          alert("Token is Expired,Login again");
+          this.toast.error({detail:"ERROR",summary:"Token is Expired,Login again",duration:5000})
           this.route.navigate(['login'])
         })
       })
