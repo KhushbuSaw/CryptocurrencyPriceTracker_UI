@@ -13,7 +13,7 @@ export class AuthService {
   private unique_name$=new BehaviorSubject<string>("");
   private role$=new BehaviorSubject<string>("");
 
-  private baseUrl:string="http://localhost:40812/api/UserDetails/";
+  private baseUrl:string="http://localhost:5235/api/UserDetails/";
   private userPayload:any;
 
   constructor(private http:HttpClient,private router:Router) { 
