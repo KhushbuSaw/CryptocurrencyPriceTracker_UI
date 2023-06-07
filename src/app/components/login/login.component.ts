@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit{
   this.resetService.sendResetPasswordLink(this.resetPasswordEmail)
   .subscribe({
     next:(res)=>{
-    this.toast.success({detail:"SUCCESS",summary:'Reset Sucess!',duration:5000})
+    this.toast.success({detail:"SUCCESS",summary:'Reset link sent to mail!',duration:5000})
     this.resetPasswordEmail="";
     const buttonRef=document.getElementById("closeBtn");
     buttonRef?.click();
