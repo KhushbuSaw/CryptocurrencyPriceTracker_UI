@@ -11,6 +11,7 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import {NgToastModule} from 'ng-angular-popup';
 import { FormsModule } from '@angular/forms';
+import { ResetComponent } from './components/reset/reset.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    DashboardComponent
+    DashboardComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,
