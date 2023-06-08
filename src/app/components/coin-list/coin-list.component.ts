@@ -6,6 +6,7 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { Router } from '@angular/router';
+import { CurrencyService } from 'src/app/Services/currency.service';
 
 @Component({
   selector: 'app-coin-list',
@@ -22,12 +23,18 @@ export class CoinListComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
 
-  constructor(private cryptoApi:CryptoAPIService,private router:Router) {
+  constructor(private cryptoApi:CryptoAPIService,private router:Router,private currencyService:CurrencyService) {
 
   }
   ngOnInit(): void {
     this.getAllData();
     this.getBannerData();
+    this.currencyService.getCurrency()
+    .subscribe(val=>{
+      this.currency=val;
+      this.getAllData();
+      this.getBannerData();
+    })
   }
 
   getBannerData() {
@@ -38,9 +45,10 @@ export class CoinListComponent implements OnInit {
       })
   }
   getAllData(){
-    this.cryptoApi.getCurrency("INR")
+    this.cryptoApi.getCurrency(this.currency)
     .subscribe(res=>{
-      this.dataSource = new MatTableDataSource(res);this.dataSource.paginator = this.paginator;
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     })
   }

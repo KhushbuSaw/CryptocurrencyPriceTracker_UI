@@ -6,39 +6,39 @@
     border-right: 2px solid grey;
     flex-direction: column;
 }
-.details .h3 {
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-.details .h6 {
+.img .h2 {
         width: 100%;
         padding: 25px;
         text-align: justify;
         padding-top: 0;
         padding-bottom: 15px;
+        font-size: 20px;
     }
-.img {
+.details .img {
     background: transparent;
     margin: auto;
     display: flex;
     flex-direction: column;
 }
-.img .img {
+.img img {
         margin: auto;
         display: flex;
+        height: 40%;
+        width: 40%;
     }
 
-.more-detail {
+.img .more-detail {
     padding: 10px;
     margin: 10px;
-    line-height: 50px;
+    line-height: 30px;
+    font-size: 20px;
 }
 .more-detail .title {
-        font-size: 30px;
+        font-size: 20px;
         font-weight: 600;
     }
  .more-detail .value {
-        font-size: 30px;
+        font-size: 20px;
         font-weight: 500;
     }
 .btn-custom {
