@@ -20,7 +20,7 @@ $CryptocurrencyPriceTrackerUI-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$CryptocurrencyPriceTrackerUI-theme: mat.define-light-theme((
+$CryptocurrencyPriceTrackerUI-theme: mat.define-dark-theme((
   color: (
     primary: $CryptocurrencyPriceTrackerUI-primary,
     accent: $CryptocurrencyPriceTrackerUI-accent,
