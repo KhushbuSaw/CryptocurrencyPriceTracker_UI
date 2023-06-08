@@ -12,6 +12,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import {NgToastModule} from 'ng-angular-popup';
 import { FormsModule } from '@angular/forms';
 import { ResetComponent } from './components/reset/reset.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ResetComponent } from './components/reset/reset.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgToastModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
