@@ -16,7 +16,7 @@ const routes: Routes = [
  // {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
   {path:'reset',component:ResetComponent},
   {path:'coin-list',component:CoinListComponent},
-  {path:'coin-detail',component:CoinDetailComponent}
+  {path:'coin-detail/:id',component:CoinDetailComponent}
 ];
 
 @NgModule({
