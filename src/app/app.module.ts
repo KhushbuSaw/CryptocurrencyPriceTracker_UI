@@ -18,6 +18,10 @@ import {MatInputModule} from '@angular/material/input';
 import { CoinListComponent } from './components/coin-list/coin-list.component';
 import { CoinDetailComponent } from './components/coin-detail/coin-detail.component';
 import { HeaderComponent } from './components/header/header.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import{MatSortModule} from '@angular/material/sort';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,11 @@ import { HeaderComponent } from './components/header/header.component';
     MatToolbarModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    NgChartsModule 
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
