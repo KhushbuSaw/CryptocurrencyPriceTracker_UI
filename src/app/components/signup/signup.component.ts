@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
       username:['',Validators.required],
       password:['',Validators.required],
       role:['',Validators.required],
-      phoneNo:['',[Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]]
+      phonenumber:['',[Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]]
     })
   }
   hideShowPass(){
@@ -73,11 +73,6 @@ export class SignupComponent implements OnInit {
   const patternNumber=/^[0-9]*$/;
   this.isValidPhoneNo=pattern.test(value);
   this.isTenDigitPhoneNo=patternNumber.test(value);
-  // if(this.isValidPhoneNo&&this.isTenDigitPhoneNo)
-  // this.isValidPhoneNo=true;
-  // else
-  // this.isValidPhoneNo=false;
-  // return this.isValidPhoneNo
  }
 
 }

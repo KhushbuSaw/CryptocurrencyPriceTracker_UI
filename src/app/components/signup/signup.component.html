@@ -32,7 +32,7 @@
                             <div class="form-group pt-3">
                                 <div class="input-field">
                                     <span class="fa fa-user p-2"></span>
-                                    <input [(ngModel)]="userPhoneNo" (ngModelChange)="checkValidPhoneNo($event)" formControlName="phoneNo" type="text" placeholder="PhoneNumber">
+                                    <input [(ngModel)]="userPhoneNo" (ngModelChange)="checkValidPhoneNo($event)" formControlName="phonenumber" type="text" placeholder="PhoneNumber">
                                 </div>
                             </div>
                             <small *ngIf="!isValidPhoneNo && userPhoneNo&&isTenDigitPhoneNo" class="text-danger">*Enter 10 Digit PhoneNumber*</small>
