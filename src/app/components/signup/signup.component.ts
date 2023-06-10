@@ -15,6 +15,8 @@ export class SignupComponent implements OnInit {
   isText:boolean=false;
   eyeIcon:string="fa-eye-slash";
   signUpForm!:FormGroup;
+  public userEmail!:string;
+  public isValidEmail!:boolean;
   constructor(private fb:FormBuilder,private auth:AuthService,private router:Router,private toast:NgToastService) { }
 
   ngOnInit(): void {
@@ -53,6 +55,13 @@ export class SignupComponent implements OnInit {
       this.toast.error({detail:"ERROR",summary:"Form is Invalid",duration:5000})
     }
   }
+  checkValidEmail(event:string)
+ {
+  const value=event;
+  const pattern=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/;
+  this.isValidEmail=pattern.test(value);
+  return this.isValidEmail;
+ }
 
 }
 

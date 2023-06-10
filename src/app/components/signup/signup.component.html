@@ -24,11 +24,12 @@
                             <div class="form-group pt-3">
                                 <div class="input-field">
                                     <span class="fa fa-user p-2"></span>
-                                    <input formControlName="email" type="text" placeholder="Email">
+                                    <input [(ngModel)]="userEmail" (ngModelChange)="checkValidEmail($event)"  formControlName="email" type="text" placeholder="Email">
                                 </div>
                             </div>
+                            <small *ngIf="!isValidEmail && userEmail" class="text-danger">*Invalid email*</small>
                             <small *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')" class="text-danger">*Please enter your email</small>              
-                            <div class="form-group pt-3">
+                          <div class="form-group pt-3">
                                 <div class="input-field">
                                     <span class="fa fa-user p-2"></span>
                                      <select formControlName="role">
@@ -38,7 +39,7 @@
                                      </select>
                                 </div>
                             </div>
-                            <small *ngIf="signUpForm.controls['role'].touched && signUpForm.controls['role'].value=='' && signUpForm.hasError('required','role')" class="text-danger">*Please select role</small>                                              
+                            <small *ngIf="signUpForm.controls['role'].dirty && signUpForm.controls['role'].value=='' && signUpForm.hasError('required','role')" class="text-danger">*Please select role</small>                                              
                             <div class="form-group pt-3">
                                 <div class="input-field">
                                     <span class="fa fa-user p-2"></span>
