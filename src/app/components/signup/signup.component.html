@@ -29,7 +29,15 @@
                             </div>
                             <small *ngIf="!isValidEmail && userEmail" class="text-danger">*Invalid email*</small>
                             <small *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')" class="text-danger">*Please enter your email</small>              
-                          <div class="form-group pt-3">
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input [(ngModel)]="userPhoneNo" (ngModelChange)="checkValidPhoneNo($event)" formControlName="phoneNo" type="text" placeholder="PhoneNumber">
+                                </div>
+                            </div>
+                            <small *ngIf="!isValidPhoneNo && userPhoneNo&&isTenDigitPhoneNo" class="text-danger">*Enter 10 Digit PhoneNumber*</small>
+                            <small *ngIf="!isTenDigitPhoneNo && userPhoneNo" class="text-danger">*Enter Only Numbers*</small>
+                            <div class="form-group pt-3">
                                 <div class="input-field">
                                     <span class="fa fa-user p-2"></span>
                                      <select formControlName="role">

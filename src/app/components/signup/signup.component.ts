@@ -16,7 +16,10 @@ export class SignupComponent implements OnInit {
   eyeIcon:string="fa-eye-slash";
   signUpForm!:FormGroup;
   public userEmail!:string;
+  public userPhoneNo!:string;
   public isValidEmail!:boolean;
+  public isValidPhoneNo!:boolean;
+  public isTenDigitPhoneNo!:boolean;
   constructor(private fb:FormBuilder,private auth:AuthService,private router:Router,private toast:NgToastService) { }
 
   ngOnInit(): void {
@@ -27,6 +30,7 @@ export class SignupComponent implements OnInit {
       username:['',Validators.required],
       password:['',Validators.required],
       role:['',Validators.required],
+      phoneNo:['',[Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]]
     })
   }
   hideShowPass(){
@@ -61,6 +65,19 @@ export class SignupComponent implements OnInit {
   const pattern=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/;
   this.isValidEmail=pattern.test(value);
   return this.isValidEmail;
+ }
+ checkValidPhoneNo(event:string)
+ {
+  const value=event;
+  const pattern=/^((\\+91-?)|0)?[0-9]{10}$/;
+  const patternNumber=/^[0-9]*$/;
+  this.isValidPhoneNo=pattern.test(value);
+  this.isTenDigitPhoneNo=patternNumber.test(value);
+  // if(this.isValidPhoneNo&&this.isTenDigitPhoneNo)
+  // this.isValidPhoneNo=true;
+  // else
+  // this.isValidPhoneNo=false;
+  // return this.isValidPhoneNo
  }
 
 }
