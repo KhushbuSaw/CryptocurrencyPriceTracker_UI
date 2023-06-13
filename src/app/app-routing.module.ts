@@ -12,8 +12,7 @@ const routes: Routes = [
   {path:'',redirectTo:'signup',pathMatch:'full'},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
-  {path:'dashboard',component:DashboardComponent},
- // {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
+  {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
   {path:'reset',component:ResetComponent},
   {path:'coin-list',component:CoinListComponent},
   {path:'coin-detail/:id',component:CoinDetailComponent}

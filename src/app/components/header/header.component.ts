@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/Services/auth.service';
 import { CurrencyService } from 'src/app/Services/currency.service';
 
 @Component({
@@ -8,11 +9,15 @@ import { CurrencyService } from 'src/app/Services/currency.service';
 })
 export class HeaderComponent {
   selectedCurrency:string="INR";
-  constructor(private currencyService:CurrencyService)
+  constructor(private currencyService:CurrencyService,private auth:AuthService)
   {}
 
   sendCurrency(event:string){
     this.currencyService.setCurrency(event);
     this.selectedCurrency=event;
+  }
+  logOut()
+  {
+    this.auth.signOut();
   }
 }

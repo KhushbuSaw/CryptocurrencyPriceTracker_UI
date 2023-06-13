@@ -22,6 +22,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import{MatSortModule} from '@angular/material/sort';
 import { NgChartsModule } from 'ng2-charts';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import { NgChartsModule } from 'ng2-charts';
     provide:HTTP_INTERCEPTORS,
     useClass:TokenInterceptor,
     multi:true
-  }],
+  },AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
