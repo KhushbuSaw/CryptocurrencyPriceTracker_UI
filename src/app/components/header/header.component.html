@@ -1,10 +1,15 @@
  <mat-toolbar style=" background-color: #009688;">
     <span>CRYPTO TRACKER</span>
     <span class="example-spacer"></span>
+    <span>  Hello,{{fullName}}</span>
+    <span class="example-spacer"></span>
     <mat-form-field>
       <mat-select (valueChange)="sendCurrency($event)" class="text-sm" [(ngModel)]="selectedCurrency">
           <mat-option selected value="INR">INR</mat-option>
           <mat-option value="USD">USD</mat-option>
       </mat-select>
     </mat-form-field>
+    <div class="logOut">
+      <button (click)="logOut()" class="btn btn-danger">Log Out</button>
+     </div>
   </mat-toolbar>

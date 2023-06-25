@@ -1,3 +1,7 @@
 .example-spacer {
     flex: 1 1 auto;
   }
+
+  .logOut{
+    padding: 20px 20px 50px 60px;
+  }

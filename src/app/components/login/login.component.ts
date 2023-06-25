@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit{
           this.auth.storeToken(res.accessToken);
           this.auth.storeRefreshToken(res.refreshToken);
           const tokenPayload=this.auth.decodedToken();
-          this.auth.setFullNameForStore(tokenPayload.unique_name);
+          this.auth.setFullNameForStore(tokenPayload.name);
           this.auth.setRoleForStore(tokenPayload.role)
           this.route.navigate(['dashboard'])
         },
